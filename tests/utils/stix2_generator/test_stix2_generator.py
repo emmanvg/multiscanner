@@ -107,7 +107,7 @@ def test_extract_file_cuckoo():
     ]
     extracted_indicator_expressions = []
 
-    with open('sample_report.json') as sample_report:
+    with open(os.path.join(CWD, 'sample_report.json')) as sample_report:
         sample_json = json.load(sample_report)
         r = sample_json.get('Report', {})
         cuckoo = r.get('Cuckoo Sandbox', {})
@@ -139,7 +139,7 @@ def test_extract_http_requests_cuckoo():
     ]
     extracted_indicator_expressions = []
 
-    with open('sample_report.json') as sample_report:
+    with open(os.path.join(CWD, 'sample_report.json')) as sample_report:
         sample_json = json.load(sample_report)
         r = sample_json.get('Report', {})
         cuckoo = r.get('Cuckoo Sandbox', {})
@@ -179,7 +179,7 @@ def test_parse_json_report_to_stix2_bundle():
     ]
     extracted_indicator_expressions = []
 
-    with open('sample_report.json') as sample_report:
+    with open(os.path.join(CWD, 'sample_report.json')) as sample_report:
         sample_json = json.load(sample_report)
         bundle = stix2_generator.parse_json_report_to_stix2_bundle(sample_json)
 
