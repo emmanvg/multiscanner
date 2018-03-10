@@ -6,14 +6,14 @@ import stix2
 
 
 CWD = os.path.dirname(os.path.abspath(__file__))
-MS_WD = os.path.dirname(os.path.dirname(os.path.abspath(__file__))).rstrip('/tests/utils')
+MS_WD = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 
-# Allow import of stix2_generator
-if os.path.join(MS_WD, 'utils/stix2_generator') not in sys.path:
-    sys.path.insert(0, os.path.join(MS_WD, 'utils'))
-    sys.path.insert(0, os.path.join(MS_WD, 'utils/stix2_generator'))
 sys.path.insert(0, os.path.dirname(CWD))
+# Allow import of stix2_generator
+if os.path.join(MS_WD, 'utils', 'stix2_generator') not in sys.path:
+    sys.path.insert(0, os.path.join(MS_WD, 'utils'))
+
 
 import stix2_generator
 
