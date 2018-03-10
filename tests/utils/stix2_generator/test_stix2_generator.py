@@ -4,16 +4,19 @@ import sys
 
 import stix2
 
+'''Test module for STIX2 content generation methods'''
 
 CWD = os.path.dirname(os.path.abspath(__file__))
-MS_WD = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+MODULE_TEST_DIR = os.path.dirname(CWD)
+TEST_DIR = os.path.dirname(MODULE_TEST_DIR)
+MS_WD = os.path.dirname(TEST_DIR)
 
 
-sys.path.insert(0, os.path.dirname(CWD))
 # Allow import of stix2_generator
-if os.path.join(MS_WD, 'utils', 'stix2_generator') not in sys.path:
+if os.path.join(MS_WD, 'utils') not in sys.path:
     sys.path.insert(0, os.path.join(MS_WD, 'utils'))
-
+# Use multiscanner in ../
+sys.path.insert(0, os.path.dirname(CWD))
 
 import stix2_generator
 
